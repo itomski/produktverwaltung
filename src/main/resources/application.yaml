@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: Produktverwaltung
+
+  datasource:
+    url: jdbc:mysql://localhost:8889/produktverwaltung
+    #port: 3306
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+    # Automatische erzeugung der Tabellen
+    hibernate:
+      ddl-auto: update
