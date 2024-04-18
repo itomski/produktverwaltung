@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="head(title)">
+        <meta charset="UTF-8">
+        <title th:text="${title}"></title>
+        <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom-style.css">
+    </head>
+
+    <body>
+
+        <nav class="container" th:fragment="mainNav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/produkte">Produkte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/erfassung">Erfassung</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <th:block th:fragment="foot">
+            <script src="/webjars/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+            <script src="/js/custom.js"></script>
+        </th:block>
+    </body>
+</html>

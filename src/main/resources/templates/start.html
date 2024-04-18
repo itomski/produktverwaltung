@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+<html lang="de">
 
-</head>
-<body>
+    <head th:replace="~{ui-components.html :: head('Startseite')}"></head>
 
-    <h1 class="display-1">[[${greeting}]]</h1>
-    <h2 th:text="${greeting}"></h2>
-</body>
+    <body>
+        <nav th:replace="~{ui-components.html :: mainNav}"></nav>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col">
+                    <h2 th:text="${greeting}"></h2>
+
+                </div>
+            </div>
+        </div>
+
+        <th:block th:replace="~{ui-components.html :: foot}"></th:block>
+
+    </body>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head th:replace="~{ui-components.html :: head('Startseite')}"></head>
+
+<body>
+<nav th:replace="~{ui-components.html :: mainNav}"></nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 th:text="${title}"></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <form action="/speichern" method="post" th:object="${product}">
+
+                <input type="hidden" th:field="*{id}">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Produktname</label>
+                    <input type="text" th:field="*{name}" class="form-control" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                    <div class="invalide-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Beschreibung</label>
+                    <textarea th:field="*{description}" cols="10" class="form-control" th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : ''"></textarea>
+                    <div class="invalide-feedback" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Preis</label>
+                    <input type="text" th:field="*{price}" class="form-control" th:classappend="${#fields.hasErrors('price')} ? 'is-invalid' : ''">
+                    <div class="invalide-feedback" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Anzahl</label>
+                    <input type="text" th:field="*{amount}" class="form-control" th:classappend="${#fields.hasErrors('amount')} ? 'is-invalid' : ''">
+                    <div class="invalide-feedback" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="availableSince" class="form-label">Im Sortiment seit</label>
+                    <input type="date" th:field="*{availableSince}" class="form-control" th:classappend="${#fields.hasErrors('availableSince')} ? 'is-invalid' : ''">
+                    <div class="invalide-feedback" th:if="${#fields.hasErrors('availableSince')}" th:errors="*{availableSince}"></div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Speichern</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="~{ui-components.html :: foot}"></th:block>
+
+</body>
+</html>

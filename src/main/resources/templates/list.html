@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head th:replace="~{ui-components.html :: head('Startseite')}"></head>
+
+    <body>
+        <nav th:replace="~{ui-components.html :: mainNav}"></nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 th:text="${title}"></h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 p-1" th:each="product : ${products}">
+                    <div class="card" >
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${product.name}"></h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary" th:text="${#temporals.format(product.availableSince, 'dd.MM.yyyy')}"></h6>
+                            <p class="card-text" th:text="${product.description}"></p>
+                            <a th:href="@{/edit/{uuid}(uuid=${product.id})}" class="btn btn-warning">Bearbeiten</a>
+                            <a th:href="@{/delete/{uuid}(uuid=${product.id})}" class="btn btn-danger">Löschen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <th:block th:replace="~{ui-components.html :: foot}"></th:block>
+
+    </body>
+</html>
